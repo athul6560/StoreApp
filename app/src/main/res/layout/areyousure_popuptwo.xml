@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/roundedittext">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you sure?"
+        android:id="@+id/suretetxt"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/suretetxt"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@drawable/roundbutton"
+            android:text="Confirm"
+            android:id="@+id/confirmbtn"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"/>
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+
+            android:text="Cancel"
+            android:layout_margin="20dp"
+            android:id="@+id/cancelbtn"
+
+            android:background="@drawable/whitebg_with_border"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

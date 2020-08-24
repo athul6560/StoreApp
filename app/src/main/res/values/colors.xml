@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#11151c</color>
+    <color name="colorPrimaryDark">#11151c</color>
+    <color name="colorAccent">#1f8a84</color>
+    <color name="projectblue">#11151c</color>
+    <color name="buttonblue">#1f8a84</color>
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#747474</color>
+    <color name="lightgrey">#DFDFDF</color>
+    <color name="orange">#F5BF80</color>
+    <color name="logobg">#358ac0</color>
+</resources>

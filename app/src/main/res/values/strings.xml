@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Trend IT</string>
+    <string name="preference_file_key">com.azstudio.storeapp.PREF_KEY</string>
+</resources>

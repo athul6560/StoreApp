@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.ProductPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp">
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="5dp"
+                android:text="499"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/originalprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/price"
+                android:padding="5dp"
+                android:text="876"
+                android:textColor="@color/grey" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/originalprice"
+                android:fontFamily="@font/poppins"
+                android:padding="5dp"
+                android:text="Only for Limited Time"
+                android:textColor="@color/logobg" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Please select your size"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:id="@+id/large_btn"
+                android:background="@drawable/whitebg_with_border"
+                android:text="L" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:id="@+id/xlarge_btn"
+                android:background="@drawable/whitebg_with_border"
+                android:text="xl" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:id="@+id/xxlarge_btn"
+                android:background="@drawable/whitebg_with_border"
+                android:text="xxl" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:id="@+id/xxxlarge_btn"
+                android:background="@drawable/whitebg_with_border"
+                android:text="xxxl" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Other details"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/neck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neck Type:"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins" />
+
+        <TextView
+            android:id="@+id/sleeve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleeve:"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+           />
+
+        <TextView
+            android:id="@+id/fabric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fabric:"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+           />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="buy now"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:id="@+id/buynow"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/roundbutton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/logobg"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/addtocart_btn"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/whitebg_with_border"
+            android:text="add to cart" />
+    </LinearLayout>
+
+</ScrollView>
