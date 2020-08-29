@@ -105,6 +105,7 @@ public class MyAccount extends AppCompatActivity {
             EMAIL = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
+            if(personPhoto!=null)
             Picasso.get().load(personPhoto).into(profilepic);
             name.setText(personName);
             email.setText(personEmail);

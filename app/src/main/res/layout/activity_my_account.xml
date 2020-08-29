@@ -68,6 +68,7 @@
                 android:id="@+id/imageprofile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:src="@drawable/ic_user_1"
                 android:layout_gravity="center" />
 
             <TextView

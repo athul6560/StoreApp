@@ -179,6 +179,7 @@ public class OrderPage extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                order.clear();
                 alert.dismiss();
             }
         });
