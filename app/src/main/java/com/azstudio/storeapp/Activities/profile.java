@@ -43,11 +43,10 @@ public class profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        TextView regisetr = findViewById(R.id.register);
         email = findViewById(R.id.emailid);
         password = findViewById(R.id.password);
         signInButton = findViewById(R.id.googlesignin);
-        adduserViewModel=new AdduserViewModel();
+        adduserViewModel = new AdduserViewModel();
         loginViewModel = new LoginViewModel();
         progressDialogue = new ProgressDialogue(this);
         progressDialogue.show();
@@ -73,13 +72,7 @@ public class profile extends AppCompatActivity {
                 }
             }
         });
-        regisetr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(profile.this, Register.class));
-                finish();
-            }
-        });
+
     }
 
     @Override
@@ -126,7 +119,7 @@ public class profile extends AppCompatActivity {
 
 // Commit the edits!
             editor.commit();
-            if(progressDialogue.isNetworkAvilable(profile.this)) {
+            if (progressDialogue.isNetworkAvilable(profile.this)) {
                 user user = new user();
                 user.setUser_name(account.getDisplayName());
                 user.setEmail(account.getEmail());
@@ -147,7 +140,7 @@ public class profile extends AppCompatActivity {
                                 progressDialogue.dismiss();
                                 startActivity(new Intent(profile.this, MyAccount.class));
                                 finish();
-                              //  Toast.makeText(profile.this, response.getMessage(), Toast.LENGTH_SHORT).show();
+                                //  Toast.makeText(profile.this, response.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         } catch (Exception e) {
@@ -159,13 +152,13 @@ public class profile extends AppCompatActivity {
                     }
                 });
 
-            }else {
+            } else {
                 progressDialogue.dismiss();
                 Toast.makeText(this, "No Network", Toast.LENGTH_SHORT).show();
             }
-        }else{
+        } else {
             progressDialogue.dismiss();
-           // Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
         }
     }
 

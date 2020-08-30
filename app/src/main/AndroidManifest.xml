@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.MyOrder"></activity>
         <activity
             android:name=".Activities.SplashScreen"
             android:theme="@style/SplashScreenTheme">
@@ -25,7 +24,6 @@
         <activity android:name=".Activities.Cart" />
         <activity android:name=".Activities.MyAccount" />
         <activity android:name=".Activities.PinNumber" />
-        <activity android:name=".Activities.Register" />
         <activity android:name=".Activities.profile" />
         <activity android:name=".Activities.OrderPage" />
         <activity android:name=".Activities.ProductPage" />

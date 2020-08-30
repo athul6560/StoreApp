@@ -144,6 +144,8 @@ public class MyAccount extends AppCompatActivity {
         super.onStart();
     }
 
+
+
     private void signout() {
 
         mGoogleSignInClient.signOut()

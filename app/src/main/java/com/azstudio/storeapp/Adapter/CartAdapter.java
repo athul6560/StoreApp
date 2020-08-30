@@ -67,20 +67,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
         holder.price.setText("₹" + mDataset.get(position).getPrice());
-        holder.name.setText(mDataset.get(position).getName());
+        holder.name.setText(mDataset.get(position).getName()+" ("+mDataset.get(position).getSize()+")");
         Picasso.get().load(mDataset.get(position).getImage()).into(holder.image);
         place.setText("Place order (₹" + calculatesum() + ")");
         holder.del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  Toast.makeText(con, ""+mDataset.get(position).getId(), Toast.LENGTH_SHORT).show();
-
                 databaseHandler.delete(mDataset.get(position).getId());
                 mDataset.remove(position);
                 notifyItemRemoved(position);

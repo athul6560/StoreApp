@@ -147,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
             });
         } else {
             nonet.setVisibility(View.VISIBLE);
-            progress.dismiss();
             Toast.makeText(this, "No Network", Toast.LENGTH_SHORT).show();
         }
     }

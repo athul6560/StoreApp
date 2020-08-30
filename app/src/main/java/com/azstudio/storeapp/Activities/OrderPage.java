@@ -164,7 +164,9 @@ public class OrderPage extends AppCompatActivity {
                         try {
                             Toast.makeText(OrderPage.this, "success", Toast.LENGTH_SHORT).show();
                             databaseHandler.deleteAll();
-                            startActivity(new Intent(OrderPage.this, MainActivity.class));
+                            Intent i = new Intent(OrderPage.this, MainActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(i);
                             finish();
 
                         } catch (Exception e) {
