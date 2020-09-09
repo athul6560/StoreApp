@@ -1,5 +1,6 @@
 package com.azstudio.storeapp.Retro;
 
+import com.azstudio.storeapp.Models.Product;
 import com.azstudio.storeapp.Models.orderDetails;
 import com.azstudio.storeapp.Models.product_outer_model;
 import com.azstudio.storeapp.Models.responseModel;
@@ -42,6 +43,13 @@ public interface GetDataService {
     @POST("order")
     Call<List<orderDetails>> addorder(@Body List<orderDetails> obj);
 
+    @FormUrlEncoded
+    @POST("sentsms")
+    Call<String> sentsms(@Field("number") String number, @Field("product") String product);
+
     @GET("order/{email}")
     Call<List<orderDetails>> getorder(@Path("email") String email);
+
+    @GET("getproduct/{title}")
+    Call<Product> getproduct(@Path("title") String title);
 }

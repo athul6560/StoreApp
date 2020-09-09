@@ -7,8 +7,8 @@ android {
         applicationId "com.azstudio.storeapp"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 10
-        versionName "1.10"
+        versionCode 14
+        versionName "1.14"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

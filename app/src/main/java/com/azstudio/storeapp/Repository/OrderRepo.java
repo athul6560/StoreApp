@@ -75,4 +75,23 @@ public class OrderRepo {
         });
         return oderdetails;
     }
+
+    public void sentsms(String number,String product){
+        getDataService.sentsms(number,product).enqueue(new Callback<String>() {
+
+            @Override
+            public void onResponse(Call<String> call,
+                                   Response<String> response) {
+                System.out.println("sms "+response);
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                System.out.println("faildsgs"+t.getMessage());
+
+            }
+        });
+
+    }
 }

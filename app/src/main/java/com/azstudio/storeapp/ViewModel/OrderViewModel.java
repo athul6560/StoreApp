@@ -31,4 +31,10 @@ public class OrderViewModel extends ViewModel {
 
         return mutableLiveData;
     }
+    public void sentsms(String number,String product) {
+
+         orderRepo.sentsms(number,product);
+
+
+    }
 }

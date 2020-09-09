@@ -162,6 +162,8 @@ public class OrderPage extends AppCompatActivity {
                     public void onChanged(List<orderDetails> response) {
 
                         try {
+                            orderViewModel.sentsms("+91-"+phoneNumber.getText().toString(),"Your Order is placed Successfully." +
+                                    "Please Call +919526920286 for customer service");
                             Toast.makeText(OrderPage.this, "success", Toast.LENGTH_SHORT).show();
                             databaseHandler.deleteAll();
                             Intent i = new Intent(OrderPage.this, MainActivity.class);

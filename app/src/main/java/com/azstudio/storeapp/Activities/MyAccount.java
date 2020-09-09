@@ -23,11 +23,13 @@ import android.widget.Toast;
 
 import com.azstudio.storeapp.Adapter.ProductListAdapter;
 import com.azstudio.storeapp.Adapter.orderlistadapter;
+import com.azstudio.storeapp.Models.Product;
 import com.azstudio.storeapp.Models.orderDetails;
 import com.azstudio.storeapp.R;
 import com.azstudio.storeapp.Utils.ProgressDialogue;
 import com.azstudio.storeapp.Utils.constants;
 import com.azstudio.storeapp.ViewModel.OrderViewModel;
+import com.azstudio.storeapp.ViewModel.ProductViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -46,6 +48,8 @@ public class MyAccount extends AppCompatActivity {
     public static String EMAIL = "";
     private RecyclerView recyclerView;
     private OrderViewModel orderViewModel;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +58,7 @@ public class MyAccount extends AppCompatActivity {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         back = findViewById(R.id.back);
-        orderViewModel=new OrderViewModel();
+        orderViewModel = new OrderViewModel();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +70,6 @@ public class MyAccount extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 LayoutInflater inflater = LayoutInflater.from(MyAccount.this);
                 final View views = inflater.inflate(R.layout.areyousure_popuptwo, null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MyAccount.this);
@@ -77,8 +80,6 @@ public class MyAccount extends AppCompatActivity {
                 builder.setCancelable(true);
                 final AlertDialog alert = builder.create();
                 alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
                 alert.show();
                 confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -105,28 +106,35 @@ public class MyAccount extends AppCompatActivity {
             EMAIL = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
-            if(personPhoto!=null)
-            Picasso.get().load(personPhoto).into(profilepic);
+            if (personPhoto != null)
+                Picasso.get().load(personPhoto).into(profilepic);
             name.setText(personName);
             email.setText(personEmail);
         }
+        getOrderDetails();
 
+    }
+
+    private void getOrderDetails() {
         orderViewModel.getorder(MyAccount.EMAIL).observe(MyAccount.this, new Observer<List<orderDetails>>() {
             @Override
             public void onChanged(List<orderDetails> response) {
 
                 try {
-                    if(ProgressDialogue.isNetworkAvilable(MyAccount.this)){
-                    orderlistadapter adapter = new orderlistadapter(response, MyAccount.this);
-                    // Attach the adapter to the recyclerview to populate items
-                    recyclerView.setAdapter(adapter);
-                    // Set layout manager to position the items
-                    recyclerView.setLayoutManager(new LinearLayoutManager(MyAccount.this));}else{
+
+                    if (ProgressDialogue.isNetworkAvilable(MyAccount.this)) {
+
+                        orderlistadapter adapter = new orderlistadapter(response, MyAccount.this);
+                        // Attach the adapter to the recyclerview to populate items
+                        recyclerView.setAdapter(adapter);
+                        // Set layout manager to position the items
+                        recyclerView.setLayoutManager(new LinearLayoutManager(MyAccount.this));
+                    } else {
                         Toast.makeText(MyAccount.this, "No Network", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(MyAccount.this, "Server Error"+e, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyAccount.this, "Server Error" + e, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -143,7 +151,6 @@ public class MyAccount extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         super.onStart();
     }
-
 
 
     private void signout() {

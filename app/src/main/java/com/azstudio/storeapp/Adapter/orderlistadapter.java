@@ -7,12 +7,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.azstudio.storeapp.Activities.MyAccount;
+import com.azstudio.storeapp.Models.Product;
 import com.azstudio.storeapp.Models.cartModel;
 import com.azstudio.storeapp.Models.orderDetails;
 import com.azstudio.storeapp.R;
+import com.azstudio.storeapp.Utils.ProgressDialogue;
+import com.azstudio.storeapp.ViewModel.ProductViewModel;
 import com.azstudio.storeapp.dbHandler.DatabaseHandler;
 import com.squareup.picasso.Picasso;
 
@@ -28,12 +35,14 @@ public class orderlistadapter extends RecyclerView.Adapter<orderlistadapter.MyVi
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+
         // each data item is ju public ImageView image;
         public TextView address;
         public TextView status;
         public TextView productid;
-        public TextView size;
-        public ImageView receivedimage;
+        public TextView size, name, price;
+        public ImageView receivedimage, shirtimage;
 
         public MyViewHolder(View v) {
             super(v);
@@ -42,7 +51,11 @@ public class orderlistadapter extends RecyclerView.Adapter<orderlistadapter.MyVi
             status = (TextView) itemView.findViewById(R.id.status);
             productid = (TextView) itemView.findViewById(R.id.productid);
             size = (TextView) itemView.findViewById(R.id.size);
+            price = (TextView) itemView.findViewById(R.id.price);
+            name = (TextView) itemView.findViewById(R.id.name);
             receivedimage = (ImageView) itemView.findViewById(R.id.receivedimage);
+            shirtimage = (ImageView) itemView.findViewById(R.id.shirtimage);
+
 
         }
     }
@@ -72,13 +85,17 @@ public class orderlistadapter extends RecyclerView.Adapter<orderlistadapter.MyVi
     public void onBindViewHolder(orderlistadapter.MyViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        holder.name.setText(mDataset.get(position).getName()+" ("+mDataset.get(position).getPin_number()+" )");
+        holder.price.setText("₹"+mDataset.get(position).getRate());
         holder.address.setText(mDataset.get(position).getAddress());
         holder.productid.setText(mDataset.get(position).getProduct_id());
         holder.status.setText(mDataset.get(position).getOrder_status());
         holder.size.setText(mDataset.get(position).getPin_number());
+        Picasso.get().load(mDataset.get(position).getImagea()).into(holder.shirtimage);
         if (mDataset.get(position).getOrder_status().equals("pending")) {
             holder.receivedimage.setImageResource(R.drawable.ic_baseline_check_circle_24);
         }
+
 
     }
 

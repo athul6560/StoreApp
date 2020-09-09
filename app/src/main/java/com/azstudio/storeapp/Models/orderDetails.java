@@ -9,6 +9,42 @@ public class orderDetails {
     private String pin_number;
     private String order_status;
     private String phone_number;
+    private String imagea;
+    private String product_name;
+    private String rate;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImagea() {
+        return imagea;
+    }
+
+    public void setImagea(String imagea) {
+        this.imagea = imagea;
+    }
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
 
     public String getProduct_id() {
         return product_id;
